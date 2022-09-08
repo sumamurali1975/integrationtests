@@ -104,7 +104,7 @@ pipeline {
 				pip install coverage
 				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py || true
 				
-				coverage run --source ${LIBRARYPATH}/python/dbxdemo/test*.py -m unittest discover && coverage report
+				#coverage run --source ${LIBRARYPATH}/python/dbxdemo/test*.py -m coverage report
 				
 				"""
 			 }
