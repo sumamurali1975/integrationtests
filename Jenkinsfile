@@ -104,7 +104,7 @@ pipeline {
 				pip install coverage
 				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py || true
 				
-				python -m coverage_badge -fo ./coverage.svg coverage xml
+				python3 -m coverage_badge -fo ./coverage.svg coverage xml
 				
 				"""
 			 }
