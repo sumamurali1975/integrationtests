@@ -98,10 +98,10 @@ pipeline {
 			      sh """#!/bin/bash
 				export PYSPARK_PYTHON=/usr/local/bin/python3.8
 				export PYSPARK_DRIVER_PYTHON=/usr/local/bin/python3.8
-				pip install coverage pytest-cov
+				
 				# Python tests
 				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py || true
-				python -m coverage xml
+				
 				"""
 			 }
 		  } catch(err) {
@@ -163,7 +163,9 @@ pipeline {
 				       pip install coverage
 				       #pip install pytest-cov
 				      ## pytest --cov=${projectName}/Notebooks/  --junitxml=./XmlReport/output.xml
+				      	python -m coverage xml
 				       python -m pytest --cov-report=xml:${projectName}/coverage.xml  --junitxml=./XmlReport/output.xml --cov=${projectName}
+				       
 				       
 				       '''
 				    
