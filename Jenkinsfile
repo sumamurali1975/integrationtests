@@ -100,8 +100,9 @@ pipeline {
 				export PYSPARK_DRIVER_PYTHON=/usr/local/bin/python3.8
 				
 				# Python tests
-				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py || true
-				coverage run -m pytest ${LIBRARYPATH}/python/dbxdemo/test*.py
+				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py --cov-report=xml:${TESTRESULTPATH}/coverage.xml || true
+				
+				python -m coverage_badge -fo ./coverage.svg
 				
 				"""
 			 }
