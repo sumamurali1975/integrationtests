@@ -98,7 +98,7 @@ pipeline {
 			      sh """#!/bin/bash
 				export PYSPARK_PYTHON=/usr/local/bin/python3.8
 				export PYSPARK_DRIVER_PYTHON=/usr/local/bin/python3.8
-				pyspark -v
+				pip install coverage pytest-cov
 				# Python tests
 				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py || true
 				python3.8 -m coverage xml
