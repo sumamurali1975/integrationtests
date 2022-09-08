@@ -101,7 +101,7 @@ pipeline {
 				pip install coverage pytest-cov
 				# Python tests
 				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py || true
-				python3.8 -m coverage xml
+				python -m coverage xml
 				"""
 			 }
 		  } catch(err) {
