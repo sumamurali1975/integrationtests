@@ -161,6 +161,7 @@ pipeline {
                                     sh ''' 
 				       pip install coverage
 				       pip install pytest-cov
+				       pytest --cov=${projectName}/Notebooks/  --junitxml=./XmlReport/output.xml
 				    '''
 				    
 					 slackSend color: '#BADA55', message: 'Pipeline SonarQube analysis Done', timestamp :''
