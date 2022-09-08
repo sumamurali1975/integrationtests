@@ -101,6 +101,7 @@ pipeline {
 				
 				# Python tests
 				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py || true
+				coverage run -m pytest ${LIBRARYPATH}/python/dbxdemo/test*.py
 				
 				"""
 			 }
