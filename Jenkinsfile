@@ -101,9 +101,10 @@ pipeline {
 				
 				# Python tests
 				pip install coverage-badge
-				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py --cov-report=xml:${TESTRESULTPATH}/coverage.xml || true
+				pip install coverage
+				python3.8 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-libout.xml ${LIBRARYPATH}/python/dbxdemo/test*.py || true
 				
-				python -m coverage_badge -fo ./coverage.svg
+				python -m coverage_badge -fo ./coverage.svg coverage xml
 				
 				"""
 			 }
