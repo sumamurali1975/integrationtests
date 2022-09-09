@@ -166,8 +166,10 @@ pipeline {
 				    
                                     sh ''' 
 				       pip install coverage
+				       pip3 install coverage
+				       pip3 install pytest-cov
 				       pip install pytest-cov
-				       pytest --cov=${projectName}/Notebooks/  --junitxml=./XmlReport/output.xml
+				       pytest --cov=${projectName}/Notebooks/ --cov-report=xml --junitxml=./XmlReport/output.xml
 				       python -m coverage xml
 				      #pytest --cov=${projectName}/Notebooks/  --junitxml=${TESTRESULTPATH}/TEST-libout.xml --cov-report=xml:${projectName}/coverage.xml
 				      #python -m coverage xml
