@@ -84,6 +84,7 @@ pipeline {
 				${CLUSTERID}
 				0
 				15001" | databricks-connect configure
+				conda deactivate
 				"""
 			  }	
 		}
@@ -130,6 +131,7 @@ pipeline {
 		      cd ${LIBRARYPATH}/python/dbxdemo
 		      pip install wheel
 		      python3 setup.py sdist bdist_wheel
+		      conda deactivate
 		     """
 	     }
 	}
