@@ -49,7 +49,7 @@ pipeline {
     stage('Install Requirements') {
         steps {
             sh '''#!/usr/bin/env bash
-            echo "Installing Requirements for demo"  
+            echo "Installing Requirements"  
             source $WORKSPACE/miniconda/etc/profile.d/conda.sh
             
 	    conda activate mlops2
