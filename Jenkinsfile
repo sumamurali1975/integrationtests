@@ -212,8 +212,8 @@ pipeline {
       		sh """python3 ${SCRIPTPATH}/executenotebook.py --workspace=${DBURL}\
                       --token=$TOKEN\
                       --clusterid=${CLUSTERID}\
-                      --localpath=${NOTEBOOKPATH}/ \
-                      --workspacepath=${WORKSPACEPATH}/ \
+                      --localpath=${NOTEBOOKPATH} \
+                      --workspacepath=${WORKSPACEPATH} \
                       --outfilepath=${OUTFILEPATH}
          	"""
   		}
