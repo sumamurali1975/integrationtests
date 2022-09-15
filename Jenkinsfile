@@ -11,7 +11,8 @@ pipeline {
 
     TESTRESULTPATH  ="./teste_results"
     LIBRARYPATH     = "./Libraries"
-    OUTFILEPATH     = "./Validation/Output"
+    OUTFILEPATH = "${BUILDPATH}/Validation/Output"
+    //OUTFILEPATH     = "./Validation/Output"
     NOTEBOOKPATH    = "./Notebooks"
     WORKSPACEPATH   = "/Demo-notebooks"               //"/Shared"
     DBFSPATH        = "dbfs:/FileStore/"
