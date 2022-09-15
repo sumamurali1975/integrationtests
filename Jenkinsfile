@@ -205,6 +205,30 @@ pipeline {
 		    	}
 		 }
 	}
+	
+	  stage('Run Integration Tests') {
+  withCredentials([string(credentialsId: DBTOKEN, variable: 'TOKEN')]) {
+      sh """python3 ${SCRIPTPATH}/executenotebook.py --workspace=${DBURL}\
+                      --token=$TOKEN\
+                      --clusterid=${CLUSTERID}\
+                      --localpath=${NOTEBOOKPATH}/VALIDATION\
+                      --workspacepath=${WORKSPACEPATH}/VALIDATION\
+                      --outfilepath=${OUTFILEPATH}
+         """
+  }
+  sh """sed -i -e 's #ENV# ${OUTFILEPATH} g' ${SCRIPTPATH}/evaluatenotebookruns.py
+        python3 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-notebookout.xml ${SCRIPTPATH}/evaluatenotebookruns.py || true
+     """
+}
+	  stage('Report Test Results') {
+  sh """find ${OUTFILEPATH} -name '*.json' -exec gzip --verbose {} \\;
+        touch ${TESTRESULTPATH}/TEST-*.xml
+     """
+  junit "**/reports/junit/*.xml"
+}
+	  
+	  
+	  
 	  
   }
 	
