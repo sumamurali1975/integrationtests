@@ -217,16 +217,16 @@ pipeline {
                       --outfilepath=${OUTFILEPATH}
          	"""
   		}
-		    sh echo "${OUTFILEPATH}"
+		    sh "echo "${OUTFILEPATH}" "
   		sh """sed -i -e 's #ENV# ${OUTFILEPATH} g' ${SCRIPTPATH}/evaluatenotebookruns.py
         	python3 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-notebookout.xml ${SCRIPTPATH}/evaluatenotebookruns.py || true
  	   		 """
-		  sh echo "${OUTFILEPATH}"  
+		  sh " echo "${OUTFILEPATH}"  "
 	    }
 }
 	stage('Report Test Results') {
 	steps {
-		sh echo "${OUTFILEPATH}"
+		sh " echo "${OUTFILEPATH}" "
     sh """find ${OUTFILEPATH} -name '*.json' -exec gzip --verbose {} \\;
           touch ${TESTRESULTPATH}/TEST-*.xml
        """
