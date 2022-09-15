@@ -144,8 +144,8 @@ pipeline {
 			  #Get Modified Files
 			  git diff --name-only --diff-filter=AMR HEAD^1 HEAD | xargs -I '{}' cp --parents -r '{}' ${BUILDPATH}
 
-			  cp ${WORKSPACE}/Notebooks/*.* ${BUILDPATH}/Workspace
-
+			  cp ${WORKSPACE}/Notebooks/*.ipynb ${BUILDPATH}/Workspace
+			  cp ${WORKSPACE}/Notebooks/*.py ${BUILDPATH}/Workspace
 			  # Get packaged libs
 			  find ${LIBRARYPATH} -name '*.whl' | xargs -I '{}' cp '{}' ${BUILDPATH}/Libraries/python/
 
