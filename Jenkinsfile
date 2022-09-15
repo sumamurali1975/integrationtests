@@ -155,7 +155,7 @@ pipeline {
 			slackSend failOnError: true, color: "#439FE0", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
 		}
 
-	    }
+	    } 
 	  
 	stage('SonarQube analysis') {
 		  steps {
