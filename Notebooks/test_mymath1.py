@@ -1,5 +1,5 @@
 # test_mymath.py
-import mymath1
+import mymath
 import unittest
 
 class TestAdd(unittest.TestCase):
@@ -11,14 +11,14 @@ class TestAdd(unittest.TestCase):
         """
         Test that the addition of two integers returns the correct total
         """
-        result = mymath1.add(1, 2)
+        result = mymath.add(1, 2)
         self.assertEqual(result, 3)
 
     def test_add_floats(self):
         """
         Test that the addition of two floats returns the correct result
         """
-        result = mymath1.add(10.5, 2)
+        result = mymath.add(10.5, 2)
         self.assertEqual(result, 12.5)
 
     def test_add_strings(self):
@@ -26,7 +26,7 @@ class TestAdd(unittest.TestCase):
         Test the addition of two strings returns the two string as one
         concatenated string
         """
-        result = mymath1.add('abc', 'def')
+        result = mymath.add('abc', 'def')
         self.assertEqual(result, 'abcdef')
 
 
