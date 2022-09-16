@@ -101,10 +101,10 @@ def main():
               break
           i=i+1
 
-      '''if outfilepath != '':
+      if outfilepath != '':
           file = open(outfilepath + '/' +  str(runid) + '.json', 'w')
           file.write(json.dumps(j))
-          file.close()'''
+          file.close()
 
 if __name__ == '__main__':
   main()
