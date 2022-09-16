@@ -169,7 +169,7 @@ pipeline {
 				       pip install coverage
 		    		       pip install pytest-cov
 		    		       pytest --cov=${projectName}/Notebooks/  --junitxml=./XmlReport/output.xml
-                                       python -m coverage xml
+                                       //python -m coverage xml
 				       
 				       '''
 				    
