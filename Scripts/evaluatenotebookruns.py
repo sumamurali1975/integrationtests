@@ -6,7 +6,8 @@ import os
 
 class TestJobOutput(unittest.TestCase):
 
-  test_output_path = '#ENV#'
+  #test_output_path = '#ENV#'
+  test_output_path = './Validation/Output'
   print('test_output_path is ')
   def test_performance(self):
       path = self.test_output_path
