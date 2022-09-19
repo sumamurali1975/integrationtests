@@ -217,7 +217,7 @@ pipeline {
 		sh """find ${OUTFILEPATH} -name '*.json' -exec gzip --verbose {}  \\;
                       touch ${TESTRESULTPATH}/TEST-*.xml
                      """
-		   coverage run --source ${TESTRESULTPATH}/TEST-*.xml -m coverage report    
+		   coverage run --source ${TESTRESULTPATH}/TEST*.xml -m coverage report    
 		  		    
 				    		  
 	    }
