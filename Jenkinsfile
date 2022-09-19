@@ -212,10 +212,10 @@ pipeline {
   		sh """sed -i -e 's #ENV# ${OUTFILEPATH} g' ${SCRIPTPATH}/evaluatenotebookruns.py
         	python3 -m pytest --junit-xml=${TESTRESULTPATH}/TEST-notebookout.xml ${SCRIPTPATH}/evaluatenotebookruns.py || true
  	   		 """
-		sh """find ${OUTFILEPATH} -name '*.json' -exec gzip --verbose {} 
-                       
+		sh """find ${OUTFILEPATH} -name '*.json' -exec gzip --verbose {}  \\;
+                      touch ${TESTRESULTPATH}/TEST-*.xml
                      """
-		    junit 'integration-test-reports/*.xml'
+		    junit '**/reports/junit/*.xml'
 		    		  
 	    }
 }
