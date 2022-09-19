@@ -7,7 +7,7 @@ import os
 class TestJobOutput(unittest.TestCase):
 
   test_output_path = '#ENV#'
-   print('test_output_path is ')
+  print('test_output_path is ')
   def test_performance(self):
       path = self.test_output_path
       print('path is ')
